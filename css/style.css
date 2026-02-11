@@ -1,19 +1,47 @@
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --primary:     #00d4ff;       /* основний неоновий cyan */
+  --primary-dark:#0095e6;
+  --primary-light:#00b0ff;
+  --glow:        rgba(0, 212, 255, 0.5);
+  --glow-strong: rgba(0, 212, 255, 0.6);
+  --card-bg:     rgba(0, 212, 255, 0.06);
+  --card-border: rgba(0, 212, 255, 0.18);
+  --overlay:     rgba(10, 20, 50, 0.68);
+  --header-bg:   rgba(10, 20, 50, 0.88);
+  --text:        #e6f0ff;
+  --text-light:  #b3d4ff;
+  --transition:  all 0.3s ease;
+  --radius:      12px;
+  --radius-sm:   8px;
+  --shadow-sm:   0 0 12px var(--glow);
+  --shadow-md:   0 0 20px var(--glow);
+  --shadow-lg:   0 0 30px var(--glow);
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: #f0f0f0;
-  background: #0a0f0a;
+  color: var(--text);
+  background: #0a0f1a;
   line-height: 1.6;
 }
 
+/* ==========================================================================
+   BACKGROUND & OVERLAY
+   ========================================================================== */
+
 .video-bg {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   z-index: -2;
   overflow: hidden;
   background: #000;
@@ -23,16 +51,20 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(1.4) contrast(1.4) saturate(1.4);
+  filter: brightness(1.2) contrast(1.15) saturate(1.3) hue-rotate(200deg);
   transform: scale(1.01);
 }
 
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: var(--overlay);
   z-index: -1;
 }
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
 
 .container {
   max-width: 1200px;
@@ -40,14 +72,31 @@ body {
   padding: 0 20px;
 }
 
+.section {
+  padding: 120px 0;
+}
+
+.section h2 {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary);
+  text-shadow: 0 0 12px var(--glow-strong);
+}
+
+/* ==========================================================================
+   HEADER & NAV
+   ========================================================================== */
+
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 15, 10, 0.85);
-  backdrop-filter: blur(8px);
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
   z-index: 100;
   padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.12);
 }
 
 .header .container {
@@ -66,41 +115,74 @@ body {
 }
 
 .nav a {
-  color: #ddd;
+  color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
   white-space: nowrap;
+  transition: color 0.2s;
 }
 
 .nav a:hover,
 .nav a.active {
-  color: #ff8c00;
+  color: var(--primary);
+  text-shadow: 0 0 8px var(--glow-strong);
 }
 
-.btn-apply {
-  background-color: #ff6200;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
+/* ==========================================================================
+   BUTTONS (об'єднано btn-apply, btn-large, btn-outline, btn-apply-card)
+   ========================================================================== */
+
+.btn,
+.btn-apply,
+.btn-large,
+.btn-outline,
+.btn-apply-card {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: var(--transition);
   white-space: nowrap;
 }
 
-.btn-apply:hover {
-  background-color: #e55a00;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 98, 0, 0.3);
+.btn-apply,
+.btn-large,
+.btn-apply-card {
+  background: var(--primary-light);
+  color: white;
+  box-shadow: var(--shadow-sm);
 }
 
-/* ─── Логотип з анімованим відео ─── */
+.btn-apply:hover,
+.btn-large:hover,
+.btn-apply-card:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: rgba(0, 212, 255, 0.12);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px var(--glow);
+}
+
+/* ==========================================================================
+   LOGO & MODAL
+   ========================================================================== */
+
 .logo-link {
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
 .logo-container {
@@ -113,26 +195,25 @@ body {
 
 .logo-mini-video {
   height: 60px;
-  width: auto;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   object-fit: contain;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s;
 }
 
 .logo-container:hover .logo-mini-video {
   transform: scale(1.08);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.5);
 }
 
 .logo-text {
   font-weight: 700;
   font-size: 1.1rem;
-  color: #ff8c00;
+  color: var(--primary);
   letter-spacing: 0.5px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  text-shadow: 0 1px 6px var(--glow);
 }
 
-/* Повноекранне модальне відео */
 .logo-video-modal {
   position: fixed;
   inset: 0;
@@ -151,42 +232,14 @@ body {
   pointer-events: all;
 }
 
-.logo-video-wrapper {
-  position: relative;
-  width: 90vw;
-  max-width: 1600px;
-  max-height: 85vh;
-  aspect-ratio: 16 / 9;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.9);
-  transform: scale(0.6);
-  opacity: 0;
-  transition: all 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.logo-video-modal.active .logo-video-wrapper {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.logo-video-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #000;
-}
-
-/* Кнопка закриття */
 .modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
   background: rgba(0,0,0,0.75);
-  color: #ffffff;
+  color: white;
   border: none;
   font-size: 36px;
-  line-height: 1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -194,45 +247,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease;
+  transition: var(--transition);
+  box-shadow: 0 0 15px var(--glow);
   z-index: 10;
-  box-shadow: 0 0 15px rgba(255, 98, 0, 0.5);
-  font-weight: bold;
 }
 
 .modal-close:hover {
-  background: #ff6200;
+  background: var(--primary);
+  color: #000d1a;
   transform: scale(1.15);
-  box-shadow: 0 0 25px rgba(255, 98, 0, 0.8);
+  box-shadow: 0 0 25px var(--glow-strong);
 }
 
-.logo-video-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
-  pointer-events: none;
-  z-index: 5;
-}
+/* ==========================================================================
+   HERO (загальний + vacancies-hero)
+   ========================================================================== */
 
-/* Анімація зльоту */
-@keyframes flyToCorner {
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    transform: scale(0.08) translate(-88vw, -45vh);
-    opacity: 0;
-  }
-}
-
-.logo-video-modal.flying .logo-video-wrapper {
-  animation: flyToCorner 1.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
-  pointer-events: none;
-}
-
-/* ─── Основний контент ─── */
-.hero {
+.hero,
+.vacancies-hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -240,23 +272,38 @@ body {
   padding-top: 100px;
 }
 
-.hero h1 {
+.vacancies-hero {
+  min-height: 80vh;
+  padding-top: 140px;
+}
+
+.hero h1,
+.vacancies-hero h1 {
   font-size: 4.5rem;
   font-weight: 700;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
   letter-spacing: -1px;
+  color: var(--text);
+  text-shadow: 0 4px 20px var(--glow);
+}
+
+.vacancies-hero h1 {
+  font-size: 4.2rem;
+  color: var(--primary);
+  text-shadow: 0 0 20px var(--glow-strong);
 }
 
 .lead {
   font-size: 1.6rem;
   max-width: 700px;
   margin: 0 auto 2.5rem;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
-.hero-subtitle {
+.hero-subtitle,
+.intro-text {
   font-size: 1.4rem;
-  opacity: 0.85;
+  opacity: 0.88;
   margin: 1.5rem auto 2.5rem;
   max-width: 720px;
 }
@@ -268,93 +315,60 @@ body {
   flex-wrap: wrap;
 }
 
-.btn-large {
-  background: #ff8c00;
-  color: white;
-  padding: 16px 40px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.25s;
-}
+/* ==========================================================================
+   VALUES / CARDS (value-card + vacancy-card)
+   ========================================================================== */
 
-.btn-large:hover {
-  background: #ff6b00;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
-}
-
-.btn-outline {
-  border: 2px solid #ff8c00;
-  color: #ff8c00;
-  padding: 16px 40px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.25s;
-}
-
-.btn-outline:hover {
-  background: #ff8c00;
-  color: white;
-  transform: translateY(-3px);
-}
-
-.section {
-  padding: 120px 0;
-}
-
-.section h2 {
-  font-size: 3.2rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #ff8c00;
-}
-
-/* Цінності */
-.values-grid {
+.values-grid,
+.vacancy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  margin: 3rem 0;
 }
 
-.value-card {
-  background: rgba(255,140,0,0.08);
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255,140,0,0.2);
+.value-card,
+.vacancy-card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
   text-align: center;
-  transition: transform 0.3s;
+  transition: var(--transition);
 }
 
-.value-card:hover {
+.value-card:hover,
+.vacancy-card:hover {
   transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
-.value-card i {
-  font-size: 3.2rem;
-  color: #ff8c00;
+.value-card i,
+.vacancy-card i {
+  font-size: 3.5rem;
+  color: var(--primary);
   margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px var(--glow-strong);
 }
 
-.value-card h3 {
-  font-size: 1.8rem;
+.value-card h3,
+.vacancy-card h3 {
+  font-size: 1.9rem;
+  color: var(--primary);
   margin-bottom: 1rem;
-  color: #ff8c00;
 }
 
-/* ─── Галерея — карусель + lightbox ─── */
+/* ==========================================================================
+   GALLERY & CAROUSEL
+   ========================================================================== */
+
 .gallery {
   padding: 120px 0;
 }
 
 .carousel-wrapper {
   overflow: hidden;
-  width: 100%;
   margin: 2rem 0;
-  position: relative;
 }
 
 .carousel-track {
@@ -367,11 +381,10 @@ body {
   height: 280px;
   width: auto;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: var(--radius);
   margin: 0 16px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s;
   cursor: pointer;
 }
 
@@ -381,18 +394,25 @@ body {
 
 .carousel-track img:hover {
   transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.35);
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* Lightbox */
+.gallery-note {
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+
 .lightbox-modal {
   display: none;
   position: fixed;
@@ -411,8 +431,8 @@ body {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(255,140,0,0.5);
+  border-radius: var(--radius);
+  box-shadow: 0 0 40px var(--glow);
 }
 
 .lightbox-close {
@@ -423,139 +443,250 @@ body {
   font-size: 50px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 10000;
-  text-shadow: 0 0 10px black;
   transition: color 0.3s;
 }
 
 .lightbox-close:hover {
-  color: #ff8c00;
+  color: var(--primary);
 }
 
-.gallery-note {
-  text-align: center;
-  font-style: italic;
-  opacity: 0.8;
-  margin-top: 1rem;
+/* ==========================================================================
+   VACANCIES SPECIFIC — ТІЛЬКИ ЦЕ ЗМІНЕНО (фото менші та красивіші)
+   ========================================================================== */
+
+.vacancies {
+  background: linear-gradient(to bottom, rgba(10, 20, 50, 0.3), transparent);
 }
 
-/* CTA секція */
-.cta-section {
-  background: rgba(255,140,0,0.08);
-  text-align: center;
-}
-
-.cta-buttons {
-  display: flex;
+.vacancy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2.5rem;
+  margin: 3rem 0;
 }
+
+.vacancy-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.vacancy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+.vacancy-img {
+  width: 100%;
+  height: 200px;                    /* оптимальна висота — не велике, не маленьке */
+  object-fit: cover;
+  object-position: top center;      /* обличчя/ключові елементи зверху, не обрізаються */
+  border-bottom: 2px solid var(--primary);
+  transition: transform 0.4s ease;
+}
+
+.vacancy-card:hover .vacancy-img {
+  transform: scale(1.05);           /* легкий зум на hover — виглядає живо */
+}
+
+.vacancy-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 1.2rem 1rem 0.8rem;
+  text-shadow: 0 0 10px var(--glow-strong);
+}
+
+.vacancy-card p {
+  padding: 0 1.5rem 1.8rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.btn-apply-card {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 10px 30px;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 
 footer {
   padding: 60px 0 30px;
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(0, 212, 255, 0.12);
   font-size: 0.95rem;
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
-/* ─── АДАПТИВ ─── */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
 @media (max-width: 768px) {
-  .header {
-    padding: 6px 0;
-  }
-
-  .header .container {
-    flex-direction: column;
-    gap: 8px;
-    padding: 6px 12px;
-  }
-
-  .logo-container {
-    gap: 8px;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .logo-mini-video {
-    height: 40px;
-  }
-
-  .logo-text {
-    font-size: 0.88rem;
-    line-height: 1.2;
-    max-width: 240px;
-    white-space: normal;
-    text-align: center;
-    word-break: break-word;
-  }
-
-  .nav {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.8rem;
-    font-size: 0.88rem;
-  }
-
-  .btn-apply {
-    padding: 6px 14px;
-    font-size: 0.88rem;
-  }
-
-  .hero {
-    padding-top: 140px;
-    min-height: 90vh;
-  }
-
-  .hero h1 {
-    font-size: 2.8rem;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-
-  .lead {
-    font-size: 1.35rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    gap: 1rem;
-  }
+  .header { padding: 6px 0; }
+  .header .container { flex-direction: column; gap: 8px; padding: 6px 12px; }
+  .logo-container { gap: 8px; width: 100%; justify-content: center; }
+  .logo-mini-video { height: 40px; }
+  .logo-text { font-size: 0.88rem; max-width: 240px; text-align: center; }
+  .nav { gap: 0.8rem; font-size: 0.88rem; justify-content: center; }
+  .btn,
+  .btn-apply { padding: 6px 14px; font-size: 0.88rem; }
+  .hero,
+  .vacancies-hero { padding-top: 140px; min-height: 90vh; }
+  .hero h1 { font-size: 2.8rem; }
+  .lead { font-size: 1.35rem; }
+  .hero-subtitle { font-size: 1.2rem; }
+  .hero-cta { flex-direction: column; gap: 1rem; }
+  .vacancy-img { height: 180px; }    /* на мобілках ще трохи менші */
+  .vacancy-card h3 { font-size: 1.6rem; }
 }
 
 @media (max-width: 480px) {
-  .logo-text {
-    font-size: 0.85rem;
-    max-width: 220px;
-  }
-
-  .logo-mini-video {
-    height: 38px;
-  }
-
-  .hero {
-    padding-top: 160px;
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-
-  .lead {
-    font-size: 1.25rem;
-  }
+  .logo-text { font-size: 0.85rem; max-width: 220px; }
+  .logo-mini-video { height: 38px; }
+  .hero { padding-top: 160px; }
+  .hero h1 { font-size: 2.4rem; }
+  .lead { font-size: 1.25rem; }
+  .vacancy-img { height: 160px; }
 }
 
 @media (max-aspect-ratio: 3/4) {
-  .logo-video-wrapper {
-    height: 70vh;
-    width: auto;
-    max-width: 94vw;
-  }
+  .logo-video-wrapper { height: 70vh; width: auto; max-width: 94vw; }
+}
+
+/* ==========================================================================
+   HERO — ОНОВЛЕНИЙ ТЕКСТ (красиве форматування)
+   ========================================================================== */
+
+.hero-title {
+  font-size: 5.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-shadow: 0 0 25px var(--glow-strong), 0 0 50px var(--glow);
+  margin-bottom: 1.5rem;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.hero-lead {
+  font-size: 1.9rem;
+  max-width: 820px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.94;
+  font-weight: 500;
+}
+
+.recruitment-block {
+  max-width: 920px;
+  margin: 0 auto 3.5rem;
+  background: rgba(0, 212, 255, 0.04);
+  padding: 2.8rem 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.12);
+}
+
+.recruit-intro {
+  font-size: 1.55rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.recruit-features {
+  list-style: none;
+  text-align: left;
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+}
+
+.recruit-features li {
+  margin: 1.2rem 0;
+  padding-left: 2.2rem;
+  position: relative;
+}
+
+.recruit-features li::before {
+  content: "→";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.priorities-box {
+  background: rgba(0, 212, 255, 0.06);
+  padding: 1.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--card-border);
+  margin: 2rem 0;
+}
+
+.priorities-box h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.priorities-list {
+  list-style: none;
+  font-size: 1.25rem;
+}
+
+.priorities-list li {
+  margin: 1rem 0;
+  padding-left: 2.2rem;
+  position: relative;
+}
+
+.priorities-list li::before {
+  content: "✔";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+}
+
+.priorities-list li strong {
+  color: var(--primary-light);
+}
+
+.call-to-action {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin: 2.5rem 0 1.5rem;
+  text-shadow: 0 0 15px var(--glow);
+}
+
+.contact-box {
+  text-align: center;
+  background: rgba(0, 212, 255, 0.08);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-box strong {
+  font-size: 1.6rem;
+  color: var(--primary-light);
+  display: block;
+  margin: 0.6rem 0;
+}
+
+.password {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  font-style: italic;
 }

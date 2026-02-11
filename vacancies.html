@@ -4,18 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Вакансії — Твій Підрозділ</title>
+  <title>2 Батальйон безпілотних систем "Алькор" — Приєднуйся</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+  <!-- Фон -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="video/poster.jpg" id="bg-video">
+      <source src="video/video3.mp4" type="video/mp4">
+      Ваш браузер не підтримує відео.
+    </video>
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Шапка -->
   <header class="header">
     <div class="container">
-      <div class="logo">ТВІЙ ПІДРОЗДІЛ</div>
+      <a href="index.html" class="logo-link" id="logoTrigger">
+        <div class="logo-container">
+          <video class="logo-mini-video" muted playsinline poster="images/logo2.jpg" src="video/logo2.mp4"></video>
+          <span class="logo-text">2 Батальйон безпілотних систем "Алькор"</span>
+        </div>
+      </a>
+
       <nav class="nav">
         <a href="index.html">Головна</a>
         <a href="about.html">Про підрозділ</a>
@@ -27,39 +44,130 @@
     </div>
   </header>
 
-  <section class="section vacancies">
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <h1>Вакансії</h1>
-      <p class="intro">Шукаємо мотивованих людей, готових змінювати хід війни.</p>
+      <h1 class="hero-title">ВІЙНА ЗМІНЮЄТЬСЯ</h1>
 
-      <div class="vacancy-grid">
-        <div class="vacancy-card">
-          <h3>Оператор FPV-дронів</h3>
-          <p>Досвід не обов’язковий — навчимо з нуля</p>
-          <a href="apply.html" class="btn">Подати заявку</a>
+      <p class="hero-lead">
+        Сьогодні перемагає той, хто швидше знаходить ціль і точніше її вражає.
+      </p>
+
+      <div class="recruitment-block">
+        <p class="recruit-intro">
+          Батальйон безпілотних систем «Алькор» оголошує набір сміливих та вмотивованих.<br>
+          <strong>Це твій шлях, якщо ти хочеш:</strong>
+        </p>
+
+        <ul class="recruit-features">
+          <li>Нищити ворога дистанційно, використовуючи FPV-дрони, розвідувальні БпЛА</li>
+          <li>Перетворити свій геймерський або технічний досвід на реальну бойову ефективність!</li>
+          <li>Бути частиною технологічного підрозділу, де кожен боєць — це фахівець</li>
+          <li>Мінімізувати ризики, працюючи розумом і технікою</li>
+        </ul>
+
+        <div class="priorities-box">
+          <h3>Наші пріоритети</h3>
+          <ul class="priorities-list">
+            <li><strong>Якісна підготовка:</strong> Ми не відправляємо в бій без впевнених навичок пілотування.</li>
+            <li><strong>Сучасний підхід:</strong> Постійне оновлення «пташок» та софту.</li>
+            <li><strong>Ефективність:</strong> Кожен виліт — це мінус техніка або жива сила окупанта.</li>
+            <li>Не чекай зустрічі з ТЦК — обирай свій фах сам.</li>
+          </ul>
         </div>
-        <div class="vacancy-card">
-          <h3>Спеціаліст з РЕБ / РЕР</h3>
-          <p>Технічний бекграунд вітається</p>
-          <a href="apply.html" class="btn">Подати заявку</a>
+
+        <p class="call-to-action">Ставай частиною ББпС «Алькор»!</p>
+
+        <div class="contact-box">
+          <p>Довідка за телефоном:</p>
+          <strong>+380 66 353 0511</strong><br>
+          <span class="password">(пароль: батальйон БПС Алькор)</span>
         </div>
-        <div class="vacancy-card">
-          <h3>Оператор БпЛА літакового типу</h3>
-          <p>Дальність — наші пріоритети</p>
-          <a href="apply.html" class="btn">Подати заявку</a>
-        </div>
-        <!-- сюди можна додавати нові картки -->
       </div>
 
-      <div style="text-align:center; margin-top:40px;">
-        <a href="apply.html" class="btn-large">Подати заявку на будь-яку позицію</a>
+      <div class="hero-cta">
+        <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-large" target="_blank" rel="noopener noreferrer">
+          Приєднатись зараз
+        </a>
+        <a href="#vacancies" class="btn-outline">Переглянути вакансії</a>
       </div>
     </div>
   </section>
 
+  <!-- Вакансії (переміщено сюди, одразу після Hero) -->
+  <section class="section vacancies" id="vacancies">
+    <div class="container">
+      <h2>Вакансії в "Алькор"</h2>
+      <p class="intro center">Приєднуйся до технологічного фронту. Кожна роль — внесок у перемогу.</p>
+
+      <div class="vacancy-grid">
+        <!-- 1. Водії -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/driver.jpg" alt="Водії логістики" loading="lazy" class="vacancy-img">
+          <h3>ВОДІЇ</h3>
+          <p>Забезпечення логістики. Перевезення техніки, бійців та вантажів у складних умовах.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+
+        <!-- 2. Пілоти FPV -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/fpv-pilot.jpg" alt="Пілоти FPV" loading="lazy" class="vacancy-img">
+          <h3>ПІЛОТИ FPV</h3>
+          <p>Ураження, знищення. Робота з FPV-дронами на передовій.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+
+        <!-- 3. Пілоти бомбардувальників -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/bomber-pilot.jpg" alt="Пілоти бомбардувальників" loading="lazy"
+            class="vacancy-img">
+          <h3>ПІЛОТИ БОМБЕРІВ</h3>
+          <p>Ураження, знищення. Робота з важкими дронами-камікадзе та бомбардувальниками.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+
+        <!-- 4. Пілоти розвідки -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/recon-pilot.jpg" alt="Пілоти розвідки" loading="lazy" class="vacancy-img">
+          <h3>ПІЛОТИ РОЗВІДКИ</h3>
+          <p>Розвідка, коригування. Управління літаковими БпЛА для спостереження та наведення.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+
+        <!-- 5. Техніки -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/technician.jpg" alt="Техніки" loading="lazy" class="vacancy-img">
+          <h3>ТЕХНІКИ</h3>
+          <p>Ремонт, підготовка БпЛА. Підтримка техніки в бойових умовах.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+
+        <!-- 6. Інженери -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/engineer.jpg" alt="Інженери" loading="lazy" class="vacancy-img">
+          <h3>ІНЖЕНЕРИ</h3>
+          <p>Підготовка боєприпасів для БпЛА. Розробка та адаптація корисного навантаження.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+
+        <!-- 7. Медики -->
+        <div class="vacancy-card">
+          <img src="images/vacancies/medic.jpg" alt="Медики" loading="lazy" class="vacancy-img">
+          <h3>МЕДИКИ</h3>
+          <p>Надання медичної допомоги. Робота в польових умовах та евакуація поранених.</p>
+          <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply-card" target="_blank">Приєднатись</a>
+        </div>
+  </section>
+
+  <!-- Lightbox (без змін) -->
+  <div class="lightbox-modal" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img class="lightbox-content" id="lightboxImg" src="" alt="Збільшене фото">
+  </div>
+
   <footer>
     <div class="container">
-      <p>© 2026 Твій Підрозділ. Усі права захищено.</p>
+      <p>2 Батальйон безпілотних систем "Алькор". Усі права захищено. Разом до Перемоги.</p>
     </div>
   </footer>
 
