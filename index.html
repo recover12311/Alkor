@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Твій Підрозділ — Приєднуйся до елітного дронового підрозділу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Фон -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="video/poster.jpg" id="bg-video">
+      <source src="video/video3.mp4" type="video/mp4">
+      Ваш браузер не підтримує відео.
+    </video>
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo-link" id="logoTrigger">
+        <div class="logo-container">
+          <video class="logo-mini-video" muted playsinline poster="images/logo2.jpg" src="video/logo2.mp4">
+          </video>
+          <span class="logo-text">2 Батальйон безпілотних систем "Алькор"</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="about.html">Про підрозділ</a>
+        <a href="vacancies.html">Вакансії</a>
+        <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-apply" target="_blank" rel="noopener noreferrer">
+          Подати заявку
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Модальне відео з хрестиком -->
+  <div class="logo-video-modal" id="logoModal">
+    <div class="logo-video-wrapper">
+      <button class="modal-close" id="closeModal">×</button>
+      <video id="logoFullVideo" muted playsinline src="video/logo2.mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>МИ ЗМІНЮЄМО ПРАВИЛА ВІЙНИ</h1>
+      <p class="lead">Елітний дроновий підрозділ, де технології рятують життя, а кожен удар — точний і вивірений.</p>
+      <p class="hero-subtitle">Сотні успішних місій • Мінімізація втрат • Постійне навчання в Україні та за кордоном</p>
+      <div class="hero-cta">
+        <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-large" target="_blank" rel="noopener noreferrer">
+          Приєднатись зараз
+        </a>
+        <a href="vacancies.html" class="btn-outline">Переглянути вакансії</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цінності / Чому ми -->
+<section class="section values">
+  <div class="container">
+    <h2>Наші принципи</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Безпека</h3>
+        <p>Дрони замість людей там, де можливо. Кожна операція планується з мінімальними ризиками.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Інновації</h3>
+        <p>Постійний розвиток: FPV, літакові БпЛА, РЕБ, AI-підтримка, нові тактики.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-users"></i>
+        <h3>Братерство</h3>
+        <p>Ми — одна сім'я. Підтримка 24/7, навчання разом, жодного не кидаємо.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-flag"></i>
+        <h3>Відданість</h3>
+        <p>До перемоги. До останнього. Україна понад усе.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-crosshairs"></i>
+        <h3>Точність</h3>
+        <p>Кожен удар — тільки по цілі. Нуль толерантності до помилок у розрахунках і виконанні.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Адаптивність</h3>
+        <p>Швидко реагуємо на зміни поля бою, ворога, погоди, техніки. Гнучкість — наша суперсила.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Галерея -->
+<section class="section gallery">
+  <div class="container">
+    <h2>Наші будні та робота</h2>
+
+    <!-- Карусель з нескінченним прокручуванням -->
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        <!-- Дубліюємо фото для seamless loop -->
+        <img src="images/photo1.jpeg" alt="Оператор FPV в роботі" loading="lazy">
+        <img src="images/photo2.jpeg" alt="Запуск дрона" loading="lazy">
+        <img src="images/photo3.jpeg" alt="Команда на позиції" loading="lazy">
+        <img src="images/photo4.jpeg" alt="Успішний удар" loading="lazy">
+        <img src="images/photo5.jpeg" alt="Навчання з РЕБ" loading="lazy">
+        <img src="images/photo6.jpeg" alt="Бійці з дронами" loading="lazy">
+
+        <!-- Дублікат для безшовного циклу -->
+        <img src="images/photo7.jpeg" alt="Оператор FPV в роботі" loading="lazy">
+        <img src="images/photo8.jpeg" alt="Запуск дрона" loading="lazy">
+        <img src="images/photo9.jpeg" alt="Команда на позиції" loading="lazy">
+        <img src="images/photo10.jpeg" alt="Успішний удар" loading="lazy">
+        <img src="images/photo11.jpeg" alt="Навчання з РЕБ" loading="lazy">
+        <img src="images/photo12.jpeg" alt="Бійці з дронами" loading="lazy">
+      </div>
+    </div>
+
+    <p class="gallery-note">Реальні кадри. Без постановки. Це наша щоденна реальність.</p>
+  </div>
+</section>
+
+<!-- Модальне вікно (lightbox) -->
+<div class="lightbox-modal" id="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+  <img class="lightbox-content" id="lightboxImg" src="" alt="Збільшене фото">
+</div>
+
+  <footer>
+    <div class="container">
+      <p>2 Батальйон безпілотних систем "Алькор". Усі права захищено. Разом до Перемоги.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
