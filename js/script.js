@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         videoWrapper.style.removeProperty('--fly-x');
         videoWrapper.style.removeProperty('--fly-y');
         videoWrapper.style.removeProperty('--final-scale');
-      }, 1400); // трохи більше, ніж тривалість transition 1.3s
+      }, 1400);
     };
   }
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ─── Lightbox для галереї-каруселі ───
+  // Lightbox для галереї-каруселі
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
 
