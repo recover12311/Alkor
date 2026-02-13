@@ -4,18 +4,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Про підрозділ — Твій Підрозділ</title>
+  <title>Про підрозділ — 2 Батальйон безпілотних систем "Алькор"</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="2 Батальйон безпілотних систем «Алькор» 116-ї окремої бригади ТрО — елітний підрозділ дронів FPV, бомбардувальників та розвідки. Точні удари, врятовані життя, постійні інновації. Приєднуйся!">
+  <meta name="keywords" content="Алькор, БПЛА, FPV, дрони, 116 бригада, ТрО, Полтава, ЗСУ, набір, вакансії">
+  <!-- Open Graph -->
+  <meta property="og:title" content="2 Батальйон безпілотних систем «Алькор» — 116-та окрема бригада ТрО">
+  <meta property="og:description" content="Війна змінюється. Ми змінюємо її за допомогою технологій. Приєднуйся до підрозділу, де кожен удар — це крок до Перемоги.">
+  <meta property="og:image" content="https://твій-домен/images/og-about.jpg"> <!-- заміни на реальний шлях -->
 </head>
 
 <body>
 
+  <!-- Фон -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="video/poster.jpg" id="bg-video">
+      <source src="video/video3.mp4" type="video/mp4">
+      Ваш браузер не підтримує відео.
+    </video>
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Шапка -->
   <header class="header">
     <div class="container">
-      <div class="logo">ТВІЙ ПІДРОЗДІЛ</div>
+      <a href="index.html" class="logo-link" id="logoTrigger">
+        <div class="logo-container">
+          <video class="logo-mini-video" muted playsinline poster="images/logo2.jpg" src="video/logo2.mp4"></video>
+          <span class="logo-text">2 Батальйон безпілотних систем "Алькор"</span>
+        </div>
+      </a>
+
       <nav class="nav">
         <a href="index.html">Головна</a>
         <a href="about.html">Про підрозділ</a>
@@ -27,34 +50,93 @@
     </div>
   </header>
 
-  <section class="section">
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <h1>Про підрозділ</h1>
-      <div class="blocks">
-        <div class="block">
-          <span class="number">01</span>
-          <p>Ми — бойовий підрозділ нового покоління, що спеціалізується на безпілотних системах та передових
-            технологіях.</p>
+      <h1 class="hero-title">2 БАТАЛЬЙОН БЕЗПІЛОТНИХ СИСТЕМ «АЛЬКОР»</h1>
+      <p class="hero-lead">
+        Частина 116-ї окремої бригади територіальної оборони ЗСУ. Полтава. Технології. Точність. Перемога.
+      </p>
+
+      <div class="recruitment-block">
+        <p class="recruit-intro">
+          Ми — рота ударних безпілотних авіаційних комплексів, що стала батальйоном. Кожен виліт — це знищена техніка, врятовані життя побратимів, крок до звільнення України.
+        </p>
+
+        <ul class="recruit-features">
+          <li>Сотні успішних бойових вильотів на східному та інших напрямках</li>
+          <li>FPV, важкі бомбардувальники, розвідка літакового типу</li>
+          <li>Постійне оновлення дронів, софту, тактик — ми попереду ворога</li>
+          <li>Мінімальні ризики для бійців завдяки технологіям</li>
+          <li>Братерство, навчання в Україні та за кордоном, підтримка 24/7</li>
+        </ul>
+
+        <div class="priorities-box">
+          <h3>Ми є частиною 116-ї бригади ТрО</h3>
+          <p>Створена 25 червня 2018 року для захисту Полтавщини. З перших днів повномасштабного вторгнення — на передовій. У грудні 2022 отримала Бойовий Прапор, у 2024 — стрічку «За участь в обороні України». Дислокація — Полтавська область, в/ч А7044.</p>
         </div>
-        <div class="block">
-          <span class="number">02</span>
-          <p>Наша мета — домінувати в повітрі, мінімізувати втрати та максимально ефективно виконувати завдання.</p>
-        </div>
-        <div class="block">
-          <span class="number">03</span>
-          <p>Постійне навчання, інновації та братерство — основа нашої сили.</p>
+
+        <p class="call-to-action">Твій досвід + наші технології = нищівна сила</p>
+
+        <div class="contact-box">
+          <p>Довідка та набір:</p>
+          <strong>+380 66 353 05 11</strong><br>
+          <span class="password">(пароль: батальйон БПС Алькор)</span><br><br>
+          <p>Або пиши напряму в форму нижче.</p>
         </div>
       </div>
 
-      <div style="text-align:center; margin-top:60px;">
-        <a href="apply.html" class="btn-large">Приєднатись до нас</a>
+      <div class="hero-cta">
+        <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-large" target="_blank" rel="noopener noreferrer">
+          Приєднатись до «Алькор»
+        </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Цінності / досяження -->
+  <section class="section values">
+    <div class="container">
+      <h2>Наша сила</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-crosshairs"></i>
+          <h3>Точність</h3>
+          <p>Кожен удар — тільки по цілі. Від FPV до аеробомберів — нуль толерантності до помилок.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Захист побратимів</h3>
+          <p>Дрони замість людей. Ми рятуємо життя, роблячи найнебезпечнішу роботу дистанційно.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-rocket"></i>
+          <h3>Інновації</h3>
+          <p>Постійне вдосконалення: нові «пташки», софт, тактики, протидія РЕБ ворога.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-users"></i>
+          <h3>Братерство</h3>
+          <p>Одна сім'я. Навчання разом, підтримка завжди, жодного не кидаємо.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Заклик -->
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Війна змінюється. Ми її змінюємо.</h2>
+      <p>Приєднуйся до підрозділу, де твій розум і руки роблять різницю щодня.</p>
+      <a href="https://forms.gle/YE1sWtZ32yqkwF7E6" class="btn-large" target="_blank" rel="noopener noreferrer">
+        Стати частиною «Алькор» зараз
+      </a>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>© 2026 Твій Підрозділ. Усі права захищено.</p>
+      <p>2 Батальйон безпілотних систем "Алькор" — 116-та окрема бригада ТрО ЗСУ. Разом до Перемоги.</p>
     </div>
   </footer>
 
