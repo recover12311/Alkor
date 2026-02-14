@@ -5,9 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Твій Підрозділ — Приєднуйся до елітного дронового підрозділу</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +13,7 @@
   <meta name="description"
     content="Батальйон безпілотних систем «Алькор» 116-ї бригади ТрО — набір пілотів FPV, бомберів, розвідки, техніків, інженерів. Приєднуйся до технологічного фронту!">
   <meta name="keywords" content="Алькор, БПЛА, FPV, дрони, ЗСУ, 116 бригада, набір, вакансії">
-  <!-- Open Graph -->
+  <!-- Open Graph для поширення в соцмережах -->
   <meta property="og:title" content="2 Батальйон безпілотних систем «Алькор»">
   <meta property="og:description" content="Війна змінюється. Приєднуйся до підрозділу, де технології рятують життя.">
   <meta property="og:image" content="https://твій-домен/images/og-image.jpg">
@@ -26,7 +23,7 @@
 
   <!-- Фон -->
   <div class="video-bg">
-    <video autoplay muted loop playsinline preload="auto" poster="images/logo2.jpg" id="bg-video">
+    <video autoplay muted loop playsinline preload="auto" poster="video/poster.jpg" id="bg-video">
       <source src="video/video3.mp4" type="video/mp4">
       Ваш браузер не підтримує відео.
     </video>
@@ -38,7 +35,8 @@
     <div class="container">
       <a href="index.html" class="logo-link" id="logoTrigger">
         <div class="logo-container">
-          <video class="logo-mini-video" muted playsinline poster="images/logo2.jpg" src="video/logo2.mp4"></video>
+          <video class="logo-mini-video" muted playsinline poster="images/logo2.jpg" src="video/logo2.mp4">
+          </video>
           <span class="logo-text">2 Батальйон безпілотних систем "Алькор"</span>
         </div>
       </a>
@@ -54,24 +52,12 @@
     </div>
   </header>
 
-  <!-- Модальне відео + аудіо -->
+  <!-- Модальне відео з хрестиком -->
   <div class="logo-video-modal" id="logoModal">
     <div class="logo-video-wrapper">
       <button class="modal-close" id="closeModal">×</button>
-
-      <video id="logoFullVideo" muted playsinline src="video/logo2.mp4"></video>
-
-      <!-- Окремий аудіо-файл -->
-      <audio id="logoAudio" preload="auto">
-        <source src="audio/logo-sound3.mp3" type="audio/mpeg">
-        Ваш браузер не підтримує аудіо.
-      </audio>
-
-      <!-- Кнопка увімкнення звуку (з'явиться, якщо звук не стартував) -->
-      <button id="unmuteBtn"
-        style="display: none; position: absolute; bottom: 20px; right: 20px; z-index: 100; padding: 10px 18px; background: rgba(0,0,0,0.7); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
-        Увімкнути звук 🔊
-      </button>
+      <video id="logoFullVideo" muted playsinline src="video/logo2.mp4">
+      </video>
     </div>
   </div>
 
@@ -100,17 +86,62 @@
           <h3>Безпека</h3>
           <p>Дрони замість людей там, де можливо. Кожна операція планується з мінімальними ризиками.</p>
         </div>
-        <!-- інші картки без змін, пропускаю для короткості -->
+        <div class="value-card">
+          <i class="fas fa-rocket"></i>
+          <h3>Інновації</h3>
+          <p>Постійний розвиток: FPV, літакові БпЛА, РЕБ, AI-підтримка, нові тактики.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-users"></i>
+          <h3>Братерство</h3>
+          <p>Ми — одна сім'я. Підтримка 24/7, навчання разом, жодного не кидаємо.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-flag"></i>
+          <h3>Відданість</h3>
+          <p>До перемоги. До останнього. Україна понад усе.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-crosshairs"></i>
+          <h3>Точність</h3>
+          <p>Кожен удар — тільки по цілі. Нуль толерантності до помилок у розрахунках і виконанні.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-sync-alt"></i>
+          <h3>Адаптивність</h3>
+          <p>Швидко реагуємо на зміни поля бою, ворога, погоди, техніки. Гнучкість — наша суперсила.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Галерея (без змін) -->
+  <!-- Галерея -->
   <section class="section gallery">
-    <!-- ... твій код галереї без змін ... -->
+    <div class="container">
+      <h2>Наші будні та робота</h2>
+
+      <!-- Карусель з нескінченним прокручуванням -->
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <img src="images/photo1.jpeg" alt="Оператор FPV в роботі" loading="lazy">
+          <img src="images/photo2.jpeg" alt="Запуск дрона" loading="lazy">
+          <img src="images/photo3.jpeg" alt="Команда на позиції" loading="lazy">
+          <img src="images/photo4.jpeg" alt="Успішний удар" loading="lazy">
+          <img src="images/photo5.jpeg" alt="Навчання з РЕБ" loading="lazy">
+          <img src="images/photo6.jpeg" alt="Бійці з дронами" loading="lazy">
+          <img src="images/photo7.jpeg" alt="Оператор FPV в роботі" loading="lazy">
+          <img src="images/photo8.jpeg" alt="Запуск дрона" loading="lazy">
+          <img src="images/photo9.jpeg" alt="Команда на позиції" loading="lazy">
+          <img src="images/photo10.jpeg" alt="Успішний удар" loading="lazy">
+          <img src="images/photo11.jpeg" alt="Навчання з РЕБ" loading="lazy">
+          <img src="images/photo12.jpeg" alt="Бійці з дронами" loading="lazy">
+        </div>
+      </div>
+
+      <p class="gallery-note">Реальні кадри. Без постановки. Це наша щоденна реальність.</p>
+    </div>
   </section>
 
-  <!-- Lightbox (без змін) -->
+  <!-- Модальне вікно (lightbox) -->
   <div class="lightbox-modal" id="lightbox">
     <span class="lightbox-close" onclick="closeLightbox()">×</span>
     <img class="lightbox-content" id="lightboxImg" src="" alt="Збільшене фото">
@@ -123,40 +154,6 @@
   </footer>
 
   <script src="js/script.js"></script>
-
-  <!-- Додатковий скрипт для кнопки "Увімкнути звук" -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('logoAudio');
-      const unmuteBtn = document.getElementById('unmuteBtn');
-
-      if (audio && unmuteBtn) {
-        // Якщо аудіо почало грати — ховаємо кнопку
-        audio.addEventListener('play', () => {
-          unmuteBtn.style.display = 'none';
-        });
-
-        // Якщо помилка завантаження або відтворення — показуємо кнопку
-        audio.addEventListener('error', () => {
-          console.warn('Помилка аудіо (можливо файл не знайдено)');
-          unmuteBtn.style.display = 'block';
-        });
-
-        // Клік по кнопці — примусово запускаємо звук
-        unmuteBtn.addEventListener('click', () => {
-          audio.muted = false;
-          audio.play()
-            .then(() => {
-              console.log('Звук запущено через кнопку');
-              unmuteBtn.style.display = 'none';
-            })
-            .catch(e => {
-              console.warn('Навіть через кнопку не запустилось:', e.message);
-            });
-        });
-      }
-    });
-  </script>
 </body>
 
 </html>
